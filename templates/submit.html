@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Price Alert</title>
+    </head>
+
+    <body>
+        {% for item in data %}
+            {{ item.Ticker }}: <b>{{ item.Value }}</b> ({{ item.Date }}) <br>
+        {% endfor %}
+    </body>
+</html>
