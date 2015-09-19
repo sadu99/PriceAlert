@@ -1,0 +1,43 @@
+.overlay{
+	position:absolute;
+	background-color:#4C4C4C;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	z-index:2000;
+	display:none;
+}
+
+.overlay p{
+	margin: 0;
+    color:#fff;
+    position: absolute;
+    display:none;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size:3em;
+}
+
+.relative{
+	position: relative;
+}
+
+.input-form{
+	position:relative;
+	height:100px;
+}
+
+.input-wrapper{
+	position: relative;
+}
+
+#end-date{
+	width:20%;
+}
+
+#info-form{
+	position: relative;
+}
