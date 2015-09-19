@@ -26,7 +26,7 @@ item_list.extend(temp_table.scan()['Items'])
 tickerSet = Set()
 #Populate tickerSet with existing ticker values
 for triple in item_list:
-	tickerSet.add(triple['Ticker'])
+	tickerSet.add(str(triple['Ticker']))
 
 tickerList = sorted(list(tickerSet))
 
