@@ -31,7 +31,7 @@ for triple in item_list:
 tickerList = sorted(list(tickerSet))
 
 #Print the list of tickers
-# pprint.pprint(tickerList)
+pprint.pprint(tickerList)
 
 #How we query shit
 data = temp_table.query(KeyConditionExpression = Key('Ticker').eq(TICKER) & Key('Date').between(START_YEAR + '-01-01', END_YEAR + '-06-30'))
