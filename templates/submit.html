@@ -7,7 +7,86 @@
 
     <body>
         {% for item in data %}
-            {{ item.Ticker }}: <b>{{ item.Value }}</b> ({{ item.Date }}) <br>
+            {{ item.Ticker }}: <b>{{ item.Value }} </b> ({{ item.Date }}) <br>
         {% endfor %}
+        {{ endPrice }}
+        <div id="container">
+        </div>
     </body>
+    <footer>
+    	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="http://code.highcharts.com/modules/exporting.js"></script>    	
+    </footer>
+    <script>
+    $(function () {
+    		var dataArray = [];
+    		// var endPr
+		    $('#container').highcharts({
+
+		        title: {
+		            text: 'Live Index data for {{ data[0].Ticker }}',
+		            x: -20 //center
+		        },
+		        subtitle: {
+		            text: 'Source: Bloomberg',
+		            x: -20
+		        },
+		        xAxis:{
+		        	type: "datetime"
+		        },
+		        yAxis: {
+		            title: {
+		                text: 'Index (pts)'
+		            },
+		            plotLines: [{
+			        	color: '#ff0000',
+			        	width: 2,
+			        	value: {{ endPrice }}
+		        	}]
+		        },
+		        tooltip: {
+		            valueSuffix: ' pts'
+		        },
+		        legend: {
+		            layout: 'vertical',
+		            align: 'right',
+		            verticalAlign: 'middle',
+		            borderWidth: 0
+		        },
+
+		       
+
+		        series: [{
+		            name: '{{ data[0].Ticker }}',
+		            data: []
+		        }],
+
+		       
+		    });
+
+		    function populateData(){
+		    	{% for item in data %}
+		    		var date = "{{ item.Date }}".split("-");
+		    		var year = parseInt(date[0]);
+		    		var month = parseInt(date[1]) - 1;
+		    		var day = parseInt(date[2]);
+		    		// console.log(year + " " + month + " " + day);
+             				dataArray.push([Date.UTC(year, month, day), {{ item.Value }}]);       
+             	{% endfor %}
+		    };
+		    populateData();
+		    		var time = 3000;
+		        	var chart = $('#container').highcharts();
+        			dataArray.forEach(function(data) {
+        				setTimeout(function(){
+        					chart.series[0].addPoint(data);},time);
+        				time+=3000;
+        				// if(data[1] > {{ endPrice }}){
+        				// 	alert("reached");
+        				// }
+        			});
+		        	
+		});
+    </script>
 </html>

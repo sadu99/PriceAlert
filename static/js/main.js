@@ -18,18 +18,20 @@ $( document ).ready(function() {
         });
 
  	var indexArray = [];
+
     $('#submit-button').click(function(event){
         // Stop the form from actually submitting.        
         event.preventDefault();            
         
         // Capture the entered name and put it into the placeholder.
         var oldEndDate = $('#end-date').val();
+        var endPrice = $('#end-price').val();
         var dateArray = oldEndDate.split("/");
         var endDate = dateArray[2] + "-" + dateArray[0] + "-" + dateArray[1];
         var ticker = $("#index-value").val();
         var start = "2014-01-01";
         var end = endDate;
-        window.location.href = "/submit?ticker=" + ticker + "&start=" + start + "&end=" + end;
+        window.location.href = "/submit?ticker=" + ticker + "&start=" + start + "&end=" + end + "&endPrice=" + endPrice;
 		// $.ajax({
   //           url: '/submit',
   //           data: {
