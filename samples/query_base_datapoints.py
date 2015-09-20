@@ -26,12 +26,12 @@ item_list.extend(temp_table.scan()['Items'])
 tickerSet = Set()
 #Populate tickerSet with existing ticker values
 for triple in item_list:
-	tickerSet.add(triple['Ticker'])
+	tickerSet.add(str(triple['Ticker']))
 
 tickerList = sorted(list(tickerSet))
 
 #Print the list of tickers
-# pprint.pprint(tickerList)
+pprint.pprint(tickerList)
 
 #How we query shit
 data = temp_table.query(KeyConditionExpression = Key('Ticker').eq(TICKER) & Key('Date').between(START_YEAR + '-01-01', END_YEAR + '-06-30'))
