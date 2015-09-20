@@ -14,8 +14,8 @@ def submit():
     ticker = request.args.get("ticker")
     start = request.args.get("start")
     end = request.args.get("end")
-    data = bloomberg.getIndexData(ticker, start, end)
-    return render_template("submit.html", data=data)
+    model_data = bloomberg.getIndexData(ticker, start, end)
+    return render_template("submit.html", data=model_data)
 
 @app.route("/tickers")
 def getTickers():
