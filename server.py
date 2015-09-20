@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
+from encoders import DecimalEncoder
 import bloomberg
+import json
 
 app = Flask("price_alert")
 
@@ -14,6 +16,11 @@ def submit():
     end = request.args.get("end")
     data = bloomberg.getIndexData(ticker, start, end)
     return render_template("submit.html", data=data)
+
+@app.route("/tickers")
+def getTickers():
+	tickers = bloomberg.getTickers()
+	return json.dumps(tickers, cls=DecimalEncoder)
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)
