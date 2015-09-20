@@ -1,3 +1,7 @@
+body{
+	background-color:#005200;
+}
+
 .overlay{
 	position:absolute;
 	background-color:#4C4C4C;
@@ -6,7 +10,10 @@
 	top:0;
 	left:0;
 	z-index:2000;
-	display:none;
+	background:url(../images/stock_background.jpeg);
+	background-size: cover;
+	background-position: center center;
+	/*display:none;*/
 }
 
 .overlay p{
@@ -18,7 +25,7 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    font-size:3em;
+    font-size:8em;
 }
 
 .relative{
@@ -34,10 +41,58 @@
 	position: relative;
 }
 
-#end-date{
+#end-date, #index-value{
 	width:20%;
+	height:20%;
+	padding:10px;
+	border:none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: #F5FFE0;
+  box-shadow: 0 0 5px 1px #fff;
 }
 
 #info-form{
 	position: relative;
+}
+
+.input-fields{
+	text-align: center;
+}
+
+.input-fields p{
+	font-size: 3em;
+	color:#fff;
+	font-family: 'Exo 2', sans-serif;
+}
+
+.title-wrapper{
+	text-align: center;
+}
+
+.title-wrapper p{
+	margin-top: 6%;
+	font-size: 6em;
+	color:#fff;
+	font-family: 'Exo 2', sans-serif;
+}
+
+#submit-button, #index-button{
+	padding:15px;
+	background-color: #000;
+	color: #fff;
+	border:none;
+	font-family: 'Exo 2', sans-serif;
+}
+
+#submit-button:focus{
+	background-color:#4c4c4c;
+	border: none;
+	outline:none;
+}
+
+#submit-button:hover{
+	background-color:#4c4c4c;
 }
