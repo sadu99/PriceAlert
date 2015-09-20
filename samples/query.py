@@ -22,29 +22,23 @@ print ""
 AWS_REGION = 'us-east-1'
 db = boto3.resource('dynamodb', region_name = AWS_REGION)
 
-print "Requesting Data from Table..."                    
-table = db.Table('2012')
-data = table.query(KeyConditionExpression = Key('Ticker').eq('UKRPI Index') & Key('Date').eq('2012-06-30'))
-print data['Items']
+print "Requesting Data from Table..."    
+y = list()
+data = dict()
+tuples = {}
+for x in range (2005, 2015):           
+	table = db.Table(str(x))
+	temp_data = table.query(KeyConditionExpression = Key('Ticker').eq('UKRPI Index'))
+	y.extend(temp_data['Items'])
+	print "Printing once..."
+	print y
 print ""
-for items in data['Items']:
-	print items.Date
+print "Printing Big Table..."
+data['Items'] = y
+print data
+print ""
 
 
-# def days_between(future_date, current_date):
-#     future_date = datetime.strptime(future_date, "%Y-%m-%d")
-#     current_date = datetime.strptime(current_date, "%Y-%m-%d")
-#     return abs((future_date - current_date).days)
-
-current_date = datetime.today()
-# date_1 = datetime.strptime(current_date, "%Y-%m-%d")
-future_date = current_date + timedelta(days=10)
-print future_date
-
-diff = abs((future_date - current_date).days)
-print diff
-
-print str(current_date.year) + "-" + str(current_date.month) + "-" + str(current_date.day) 
 
 
 
