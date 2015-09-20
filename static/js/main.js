@@ -1,6 +1,7 @@
 $( document ).ready(function() {
     $(".intro").fadeIn(2000);
     setTimeout(function(){ $(".overlay").fadeOut(1000); }, 3000);
+    $( "#end-date" ).datepicker();
       $.ajax({
             url: '/tickers',
             type: 'GET',
@@ -22,7 +23,9 @@ $( document ).ready(function() {
         event.preventDefault();            
         
         // Capture the entered name and put it into the placeholder.
-        var endDate = $('#end-date').val();
+        var oldEndDate = $('#end-date').val();
+        var dateArray = oldEndDate.split("/");
+        var endDate = dateArray[2] + "-" + dateArray[0] + "-" + dateArray[1];
         var ticker = $("#index-value").val();
         var start = "2014-01-01";
         var end = endDate;

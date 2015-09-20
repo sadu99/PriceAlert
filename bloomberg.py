@@ -36,12 +36,6 @@ def remapData(data, end_time):
 		remappedTempDict = {}
 	return remappedData		
 
-	
-
-	
-
-
-
 def getTickers():
 	item_list = _table.scan()['Items']
 	tickerSet = Set()
