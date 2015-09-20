@@ -1,5 +1,8 @@
 body{
 	background-color:#005200;
+	background:url(../images/main_background.jpg);
+	background-size: cover;
+	background-position: center center;
 }
 
 .overlay{
@@ -92,6 +95,10 @@ input[type="text"]:focus {
 	color: #fff;
 	border:none;
 	font-family: 'Exo 2', sans-serif;
+}
+
+#submit-button{
+	margin-bottom: 10px; 
 }
 
 #submit-button:focus{

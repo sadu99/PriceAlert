@@ -98,6 +98,16 @@
         					if(data[1] > value){
         						keepgoing = false;
         						$(".alertbox").fadeIn();
+        						$.ajax({
+								    type:"GET",
+								    url: "/twilio",
+								   success: function(response) {
+						                console.log(response);
+						            },
+						            error: function(error) {
+						                console.log(error);
+						            }
+								});
         						// while(!keepGoing){
         						// 	//do nothing
 
@@ -105,7 +115,7 @@
         						
         					}
         				},time);
-        				time+=3000;
+        				time+=6000;
         			}); 	
         			$(".submit").click(function(){
 						value = $(".new-value").val();
