@@ -12,5 +12,12 @@ def getIndexData(ticker, start, end):
     data = _table.query(KeyConditionExpression=Key('Ticker').eq(ticker) & Key('Date').between(start, end))
     return data['Items']
 
-def getTickers():                           
-	return sorted(_table.scan()['Items'])
+def getTickers():
+
+	item_list = _table.scan()['Items']
+	tickerSet = Set()
+	#Populate tickerSet with existing ticker values
+	for triple in item_list:
+		tickerSet.add(str(triple['Ticker']))
+
+	return sorted(list(tickerSet))                           
