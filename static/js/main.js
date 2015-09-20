@@ -8,6 +8,20 @@ $( document ).ready(function() {
         
         // Capture the entered name and put it into the placeholder.
         var endDate = $('#end-date').val();
-        console.log(endDate);
+        var ticker = "testing";
+        var start = "testing";
+        var end = "testing";
+        // window.location.href = "/submit?ticker=" + ticker + "&start=" + start + "&end=" + end;
+        $.ajax({
+            url: '/tickers',
+            type: 'GET',
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
     });
+ 
 });
