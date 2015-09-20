@@ -35,7 +35,13 @@ pprint.pprint(tickerList)
 
 #How we query shit
 data = temp_table.query(KeyConditionExpression = Key('Ticker').eq(TICKER) & Key('Date').between(START_YEAR + '-01-01', END_YEAR + '-06-30'))
-pprint.pprint(data['Items'])
+
+ticker_list = [triple['Ticker'] for triple in data['Items']]
+date_list = [triple['Date'] for triple in data['Items']]
+value_list = [float(triple['Value']) for triple in data['Items']]
+
+# pprint.pprint(zip(ticker_list, date_list, value_list))
+pprint.pprint(value_list)
 
 
 
