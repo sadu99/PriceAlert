@@ -41,7 +41,8 @@ date_list = [triple['Date'] for triple in data['Items']]
 value_list = [float(triple['Value']) for triple in data['Items']]
 
 # pprint.pprint(zip(ticker_list, date_list, value_list))
-pprint.pprint(value_list)
+# pprint.pprint(value_list)
+print(zip(date_list, value_list))
 
 
 
