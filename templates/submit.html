@@ -92,6 +92,88 @@
 		    populateData();
 		    		var time = 3000;
 		        	var chart = $('#container').highcharts();
+		        	var scenario = 0;
+		        	var firstValue = dataArray[0];
+
+		        	if(firstValue[1] > value){
+
+
+        // 			dataArray.forEach(function(data) {
+        // 				setTimeout(function(){
+        // 					chart.series[0].addPoint(data);
+        // 					if(firstValue > value) {
+        // 						showBoxOne();
+        // 					} else{
+        // 						showBoxTwo();
+        // 					}
+
+        // 					function showBoxOne(){
+        // 						if(data[1] > value){
+        // 						keepgoing = false;
+        // 						$(".alertbox").fadeIn();
+        // 						$.ajax({
+								//     type:"GET",
+								//     url: "/twilio",
+								//    success: function(response) {
+						  //               console.log(response);
+						  //           },
+						  //           error: function(error) {
+						  //               console.log(error);
+						  //           }
+								// });
+        // 					}
+        // 				}
+
+        // 					function showBoxTwo(){
+        // 						if(data[1] < value){
+        // 						keepgoing = false;
+        // 						$(".alertbox").fadeIn();
+        // 						$.ajax({
+								//     type:"GET",
+								//     url: "/twilio",
+								//    success: function(response) {
+						  //               console.log(response);
+						  //           },
+						  //           error: function(error) {
+						  //               console.log(error);
+						  //           }
+								// });
+        					
+        // 						// while(!keepGoing){
+        // 						// 	//do nothing
+
+        // 						 }
+        						
+        // 					}
+        // 				}, time);
+        // 				time+=6000;
+        // 			}); 
+
+						dataArray.forEach(function(data) {
+				        				setTimeout(function(){
+				        					chart.series[0].addPoint(data);
+				        					if(data[1] < value){
+				        						keepgoing = false;
+				        						$(".alertbox").fadeIn();
+				        						$.ajax({
+											    type:"GET",
+											    url: "/twilio",
+											   success: function(response) {
+							                console.log(response);
+							            },
+									          error: function(error) {
+							                console.log(error);
+							            }
+									});
+					        						// while(!keepGoing){
+					        						// 	//do nothing
+				        						// }
+					        						
+	        					}
+			   				},time);
+	        				time+=6000;
+        			}); 	
+        		}else {
         			dataArray.forEach(function(data) {
         				setTimeout(function(){
         					chart.series[0].addPoint(data);
@@ -110,13 +192,13 @@
 								});
         						// while(!keepGoing){
         						// 	//do nothing
-
         						// }
         						
         					}
         				},time);
         				time+=6000;
         			}); 	
+        		}
         			$(".submit").click(function(){
 						value = $(".new-value").val();
 						$(".alertbox").fadeOut();
