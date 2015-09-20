@@ -6,57 +6,36 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+       <link href='https://fonts.googleapis.com/css?family=Exo+2:100' rel='stylesheet' type='text/css'>
     </head>
 
     <body>
-    		<div class="overlay">
-    			<p class="intro">We give you the right price</p>
-    		</div>
-    		<section class="menu">
-	    		<div class="container-fluid first">
-					<nav class="relative navbar navbar-default navbar-fixed-top" role="navigation">
-						<div class="container">
-							<div class="navbar-header">
-						      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						      	<span class="sr-only">Toggle navigation</span>
-						      	<span class="icon-bar"></span>
-						      	<span class="icon-bar"></span>
-						      	<span class="icon-bar"></span>
-						      </button>
-						    </div>
+    	<div class="overlay">
+    		<p class="intro">Get ready to invest</p>
+    	</div>
 
-						    <div class="navbar-collapse collapse">
-						      <ul class="nav navbar-nav navbar-right">
-						        <li><a href="#section1">Title One</a></li>
-						        <li><a href="#section2">two</a></li>
-						        <li><a href="#section3">three</a></li>
-						        <li><a href="#section4">four</a></li>
-						        <li class="dropdown">
-						          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-						          <ul class="dropdown-menu">
-						            <li><a href="#">Action</a></li>
-						            <li><a href="#">Another action</a></li>
-						            <li><a href="#">Something else here</a></li>
-						            <li role="separator" class="divider"></li>
-						            <li><a href="#">Separated link</a></li>
-						            <li role="separator" class="divider"></li>
-						            <li><a href="#">One more separated link</a></li>
-						          </ul>
-						        </li>
-						      </ul>	
-						    </div>	     
-					  	</div>
-					</nav>
-				</div>
-    		</section>
+    	<section class="title">
+    		<div class="title-wrapper">
+    			<p>We give you the right price!</P> 
+    				<br></br>
+    		</div>
+    	</section>	
         <section class="input-fields">
+        	<p>Search for your index</p>
+        	<div class="input-wrapper">
+        		<form id="info-form">
+				    <input id="index-value" type="text" placeholder="Enter index">
+				</form>
+        	</div>
+        	<br></br>
+        	<p>Enter expected date</p>
         	<div class="input-wrapper">
         		<form id="info-form">
 				    <input id="end-date" type="text" placeholder="Enter end date(yyyy-mm-dd)">
+				    <br></br>
 				    <input id="submit-button" type="submit" value="Submit">
 				</form>
         	</div>
-			
         </section>
     </body>
 
@@ -65,6 +44,7 @@
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     	<script src="../static/js/main.js" type="text/javascript"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
     </footer>
 
 </html>
